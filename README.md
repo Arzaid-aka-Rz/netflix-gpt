@@ -1,8 +1,6 @@
 ## Netflix GPT
 
 # Features
-- Login/Sign Up
-    - Sign In /Sign up Form
-    - redirect to Browse Page
-- Browse (after authentication)
-    - Header
+- Header
+- Login Form
+- Sign up Form

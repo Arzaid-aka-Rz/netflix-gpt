@@ -1,11 +1,11 @@
+import Body from "./components/Body"
 
 
 function App() {
 
-
   return (
-    <div className="bg-red-500">
-      kya haal h londe
+    <div>
+     <Body/>
     </div>
   )
 }
