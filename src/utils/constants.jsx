@@ -8,8 +8,8 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NzhkYTYwZjY5Yzg5MmJlZjM3ZDY2N2NkMWQwOGMwMiIsIm5iZiI6MTcyMTg1MTg0OC4wNjE0NTQsInN1YiI6IjY2YTE1ZWQ3YTVhYjlkOWYzZDcwNjJhZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jamaqLlJaDCrKDi6ZEpsGaFo9DCLrlOo8dZz0CudB9A",
+    Authorization: "Bearer " + import.meta.env.VITE_TMDB_KEY,
+    // Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NzhkYTYwZjY5Yzg5MmJlZjM3ZDY2N2NkMWQwOGMwMiIsIm5iZiI6MTcyMjAyMDkyMi40NDEwMzksInN1YiI6IjY2YTE1ZWQ3YTVhYjlkOWYzZDcwNjJhZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rBL9Ir0xU-8a2vslga9iZB44Z6c6g-smk4jLeoCtk6M",
   },
 };
 
@@ -23,3 +23,5 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "hindi", name: "Hindi" },
   { identifier: "spanish", name: "Spanish" },
 ];
+
+export const GOOGLE_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
