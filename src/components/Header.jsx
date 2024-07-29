@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/gptSlice";
-
 import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
@@ -42,12 +41,11 @@ const Header = () => {
       }
     });
 
-    // Unsiubscribe when component unmounts
+    // Unsubscribe when component unmounts
     return () => unsubscribe();
   }, []);
 
-
-const handleGptSearchClick = () => {
+  const handleGptSearchClick = () => {
     // Toggle GPT Search
     dispatch(toggleGptSearchView());
   };
@@ -56,16 +54,15 @@ const handleGptSearchClick = () => {
     dispatch(changeLanguage(e.target.value));
   };
 
-
   return (
-    <div className="absolute w-screen px-12 py-3 bg-gradient-to-b from-black z-10 flex justify-between">
-      <img className="w-44" src={LOGO} alt="logo" />
+    <div className="absolute w-full px-4 md:px-12 py-3 bg-gradient-to-b from-black to-transparent z-10 flex flex-col md:flex-row justify-between items-center">
+      <img className="w-32 md:w-44 mb-4 md:mb-0" src={LOGO} alt="logo" />
 
       {user && (
-        <div className="flex p-2">
+        <div className="flex items-center space-x-4">
           {showGptSearch && (
             <select
-              className="p-2 m-2 bg-gray-900 text-white"
+              className="p-2 bg-gray-900 text-white rounded-lg"
               onChange={handleLanguageChange}
             >
               {SUPPORTED_LANGUAGES.map((lang) => (
@@ -76,14 +73,22 @@ const handleGptSearchClick = () => {
             </select>
           )}
           <button
-            className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg"
+            className="py-2 px-4 bg-purple-800 text-white rounded-lg hover:bg-purple-900 transition duration-200"
             onClick={handleGptSearchClick}
           >
             {showGptSearch ? "Homepage" : "GPT Search"}
           </button>
-          <img className="w-12 h-12" alt="usericon" src={user?.photoURL} />
-          <button onClick={handleSignOut} className="font-bold text-white ">
-            (Sign Out)
+
+          {/* <img
+            className="w-10 h-10 object-cover"
+            alt="user icon"
+            src={user?.photoURL}
+          /> */}
+          <button
+            onClick={handleSignOut}
+            className="py-2 px-4 bg-red-700 text-white rounded-lg hover:bg-red-800 transition duration-200 font-bold"
+          >
+            Sign Out
           </button>
         </div>
       )}
